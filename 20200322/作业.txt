@@ -1,0 +1,27 @@
+2、   undefined  ‘language’
+3、   window
+5、   12
+7、    不能实现  循环结束结果为5
+         for(let i=0;i<l;i++){
+        inputs[i].onclick=function(){
+            alert(i);
+        }
+    }
+8、   闭包：函数执行的时候，会产生一个不释放的私有上下文，保护和保存里面的私有变量不受外面影响
+        优点：保护和保存里面的变量不受全局污染
+        缺点：产生闭包即会产生不被释放的私有上下文，开辟的闭包越多，性能越不好，所以应该减少闭包的使用
+9、  var可以做变量提升，let不能
+        var 可以重复声明同一个变量，let不能重复声明
+10、  for (var i = 0; i < 10; i++) {
+        (function fn(i) {
+        setTimeout(() => {
+        console.log(i);
+        }, 1000);
+    })(i);
+}
+11、  var  b =10;
+         (function b(){
+              var b=20;
+              console.log(b);
+        })();
+         console.log(b);
