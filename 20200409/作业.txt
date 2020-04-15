@@ -1,0 +1,31 @@
+1、  ‘number’
+原因是：let res = parseFloat('left:200px');  //=>NaN
+因为NaN！=NaN，而返回的类型是Number所以输出结果为‘number’
+2、     NaN'北京珠峰培训nulltrue[object Object]'
+3、     12  13   12
+4、      undefined    {n:1,x:{n:2}}
+5、   ‘String’
+6、   ‘珠峰培训’ ‘珠峰培训’ ‘undefined’
+7、      11  6
+            13
+            10   6
+8、       9     10    10    1
+9、       13  
+             234
+             95   234      
+10、     21   1
+11、     undefined  
+            0
+            1
+            1
+12、     let a=[1,2,3];
+            a.toString=a.shift;
+13、    window.onload=function(){
+               var i=0;
+               for(var j=0;j<10; j++){
+                    setTimeout(console.log(i),1000);
+                    i++;
+               }
+       };
+14、    
+15、     

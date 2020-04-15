@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let str = 'http://baidu.com?abc=123&zf=666&px=888&_=t';
+        // let reg = /([^?&=]+)=([^?&=]+)/g;
+        // RegExp.prototype.execAll = function (str) {
+        //     let _this = this;
+        //     if (!_this.global) {
+        //         _this = eval(_this + 'g')
+        //     };
+        //     let res = _this.exec(str),
+        //         ary = [];
+        //     while (res) {
+        //         ary.push(res[0]);
+        //         res = _this.exec(str);
+        //     }
+        //     return ary;
+        // };
+
+        // function queryParams() {
+        //     let text = reg.execAll(str);
+        //     let obj = {};
+        //     text.forEach(item => {
+        //         let sp = item.split('=');
+        //         obj[sp[0]] = sp[1];
+        //     });
+        //     return obj;
+
+        // };
+        // console.log(queryParams(str));
+
+
+
+        // 1 -获取一个字符串中出现次数最多的字符 及其 次数 
+        var str1 = 'ertefvzdgfergsegfsdrgrgfbshtrh';
+        function text(str) {
+            var obj = {};
+            debugger;
+            for (var i = 0; i < str.length; i++) {
+                var value = str[i];
+                if (obj[value]) {
+                    obj[value]++;
+                } 
+                else {
+                    obj[value] = 1;
+                }
+            }
+            var maxCount = 0; 
+            var maxString = ''; 
+            for (var value in obj) {
+                if (maxCount < obj[value]) {
+                    maxCount = obj[value]; 
+                    maxString = value;
+                }
+            }
+            return `出现次数最多的字符:${maxString} 出现了:${maxCount}次`;
+        }
+        console.log(text(str1));
+
+
+        
+    </script>
+</body>
+
+</html>
