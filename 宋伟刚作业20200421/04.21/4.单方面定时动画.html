@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>
+<script>
+    let box = document.querySelector('#box');
+
+    function move(ele, attr, duration, target) {
+        //次数；duration
+        //ele是要移动的元素 
+        //attr是要动的属性
+        //duration是移动的时长
+        //target是目标位置
+        let start = parseFloat(getComputedStyle(ele)[attr]); //初始位置
+        let step = (target - start) / (duration);//速度
+        let time = 0; //记录运动的事件，封顶值是duration
+        let timer = setInterval(() => {
+            time += 10;
+            if (time > duration) {
+                time = duration;
+                clearInterval(timer);
+            }
+            ele.style[attr] = time * step + start+'px'; //移动距离+初始位置=就是当时位置
+        }, 10);
+    }
+    move(box, 'left', 1000, 500); //把box的left属性移动到500px的位置用时1000ms
+    move(box, 'opacity', 500, 0.5); //把box的opacity属性变成0.5 用时500ms
+</script>

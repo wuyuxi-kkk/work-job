@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="less/6.css">
+</head>
+
+<body>
+    <div id="box">
+        <!-- box是可视窗口 -->
+        <ul class="list">
+            <li><img src="C:\Users\Administrator\Pictures\动物\1_179225_c6b5053a5993c29.jpg"></li>
+            <li>
+                <img src="C:\Users\Administrator\Pictures\动物\20120620130310.jpg" alt="" srcset="">
+            </li>
+            <li>
+                <img src="C:\Users\Administrator\Pictures\动物\2016082111113732402.jpg" alt="" srcset="">
+            </li>
+            <li>
+                <img src="C:\Users\Administrator\Pictures\动物\b2a2f7f9773b44bdae626fabe1ef5b93_th.jpg" alt="" srcset="">
+            </li>
+            <li>
+                <img src="C:\Users\Administrator\Pictures\动物\VCG111156057045.jpg" alt="" srcset="">
+            </li>
+            <li>
+                <img src="C:\Users\Administrator\Pictures\动物\1_179225_c6b5053a5993c29.jpg" alt="" srcset="">
+            </li>
+        </ul>
+        <div class="btn_box">
+            <div class="left_btn">
+                < </div> 
+            <div class="right_btn"> >
+            </div>
+        
+
+        </div>
+        <div class="circle">
+            <div id="1"></div>
+            <div id="2"></div>
+            <div id="3"></div>
+            <div id="4"></div>
+            <div id="5"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let ul = document.querySelector('ul');
+    let start = 0;
+    let timer = null;
+    let left_btn = document.querySelector('.left_btn'),
+        right_btn = document.querySelector('.right_btn');
+
+
+    function move() {
+        timer = setInterval(() => {
+            // let start = parseFloat(getComputedStyle(ul).left)
+            start -= 600;
+            if (start < -3000) {
+                start = 0;
+                ul.style.transition = 'none';
+                ul.style.transform = `translateX(${start}px)`;
+                //闪到第一张之后 紧接着要向第二张移动， 而不是在等1S;
+                let l = ul.offsetLeft;
+                //读第一次数据之后 会让浏览器重新渲染一遍
+                start = -600;
+                ul.style.transition = 'all .3s';
+            } else {
+                ul.style.transition = 'all .3s';
+            }
+            // ul.style.left = start - 600 + 'px';
+            ul.style.transform = `translateX(${start}px)`;
+
+        }, 1000);
+    }
+
+
+    //滑过盒子，清除定时器
+    box.onmouseenter = function () {
+        clearInterval(timer);
+    }
+    //离开盒子
+    box.onmouseleave = function () {
+        move();
+
+    }
+    left_btn.onclick = function () {
+
+        // start += 600;
+        // if (start > 0) {
+        //     start = -3000;
+        // }
+        // ul.style.transition = 'none';
+        // ul.style.transform = `translateX(${start}px)`;
+        start += 600;
+        if (start > 0) {
+            start = -3000;
+            ul.style.transition = 'none';
+            ul.style.transform = `translateX(${start}px)`;
+            let l = ul.offsetLeft;
+            start += 600;
+            ul.style.transition = 'all .3s';
+        } else {
+            ul.style.transition = 'all .3s';
+        }
+
+        ul.style.transform = `translateX(${start}px)`;
+
+
+    }
+
+    right_btn.onclick = function () {
+        start -= 600;
+        if (start < -3000) {
+            start = 0;
+            ul.style.transition = 'none';
+            ul.style.transform = `translateX(${start}px)`;
+
+            let l = ul.offsetLeft;
+
+            start = -600;
+            ul.style.transition = 'all .3s';
+        } else {
+            ul.style.transition = 'all .3s';
+        }
+
+        ul.style.transform = `translateX(${start}px)`;
+
+
+
+    }
+</script>

@@ -1,0 +1,43 @@
+@a:100px;
+*{
+    margin: 0;
+    padding: 0;
+}
+#box{
+    background-color: salmon;
+    width: @a;
+    height: @a;
+    left: 200px;
+    position: relative;
+    // animation: turnRound 1s linear infinite;//无线旋转
+    // &:hover{
+    //    //& 代表当前的父yuansu       // animation: move123 2s;
+    //  animation-play-state: paused;//paused 停止   running运动
+//    }
+   &.stop{
+    animation-play-state: paused;
+   }
+ }
+//animation  动画
+//transitin  过度
+@keyframes move123{
+    0%{
+    //from{}
+    //to{}
+    opacity: 1;
+    }
+    50%{
+     opacity: 0;
+    }
+    100%{
+    opacity: 1;
+    }
+}
+@keyframes turnRound{
+    0%{
+     transform: rotate(0);
+    }
+    100%{
+    transform: rotate(360deg);
+    }
+}

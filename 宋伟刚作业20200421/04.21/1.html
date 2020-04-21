@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+    <div id="box">小宋</div>
+</body>
+
+</html>
+<script src="jquery-3.3.1.js"></script>
+<script>
+    let box = document.querySelector('#box');
+    box.onclick = function () {
+    this.classList.toggle('stop')//切换
+    }
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+    <div id="box">我爱你</div>
+</body>
+
+</html>
+<script>
+    function fandeIn(ele, time = 1000) {
+        //time就是我们总用的时常
+        if (ele.isShopwing) return;
+        ele.isShopwing = true;
+        let opa = 0;
+        let step = (100 - 0) / (time / 10); //步长
+        let timer = setInterval(() => {
+            opa += step;
+            if (opa > 100) {
+                opa = 100;
+                clearInterval(timer);
+                ele.isShopwing = false;
+                //18 19 27 加上可以连点
+            }
+            console.log(opa)
+            ele.style.opacity = opa / 100;
+
+        }, 10);
+    }
+    box.onclick = function () {
+        fandeIn(this);
+    }
+</script>
